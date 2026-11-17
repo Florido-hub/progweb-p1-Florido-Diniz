@@ -90,6 +90,78 @@
       </div>
     </section>
 
+    <!-- ===================== CONTAS ===================== -->
+    <section class="row g-4 mb-5" aria-labelledby="titulo-contas">
+      <!-- Grid de 12 colunas: 4 para o formulário, 8 para a lista -->
+      <div class="col-lg-4">
+        <div class="card shadow-sm">
+          <div class="card-header">
+            <h2 id="titulo-contas" class="h5 mb-0">Contas</h2>
+          </div>
+          <form id="form-conta" class="card-body" novalidate>
+            <div class="mb-3">
+              <label for="conta-cliente" class="form-label">Cliente</label>
+              <!-- As opções vêm da lista de clientes, via JS -->
+              <select id="conta-cliente" name="clienteId" class="form-select" required>
+                <option value="">Selecione…</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="conta-tipo" class="form-label">Tipo</label>
+              <select id="conta-tipo" name="tipo" class="form-select" required>
+                <option value="corrente">Corrente</option>
+                <option value="poupanca">Poupança</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="conta-saldo" class="form-label">Saldo (R$)</label>
+              <input id="conta-saldo" name="saldo" type="number" step="0.01" class="form-control" required>
+            </div>
+            <div class="d-flex gap-2">
+              <button id="conta-salvar" type="submit" class="btn btn-primary">Abrir conta</button>
+              <button id="conta-cancelar" type="button" class="btn btn-outline-secondary d-none">Cancelar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="col-lg-8">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <!-- Os quatro estados da lista: só um aparece por vez -->
+            <div id="contas-carregando" class="text-center py-4">
+              <div class="spinner-border text-primary" aria-hidden="true"></div>
+              <p class="text-muted mt-2 mb-0">Carregando contas…</p>
+            </div>
+
+            <div id="contas-erro" class="alert alert-danger mb-0 d-none" role="alert">
+              <p id="contas-erro-msg" class="mb-2"></p>
+              <button id="contas-recarregar" type="button" class="btn btn-sm btn-outline-danger">Tentar de novo</button>
+            </div>
+
+            <p id="contas-vazio" class="text-muted text-center py-4 mb-0 d-none">
+              Nenhuma conta ainda. Cadastre um cliente e abra a primeira.
+            </p>
+
+            <div id="contas-sucesso" class="table-responsive d-none">
+              <table class="table table-hover align-middle mb-0">
+                <thead>
+                  <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Cliente</th>
+                  <th scope="col">Tipo</th>
+                  <th scope="col" class="text-end">Saldo</th>
+                  <th scope="col" class="text-end">Ações</th>
+                  </tr>
+                </thead>
+                <tbody id="contas-linhas"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="container text-muted small pb-4">
