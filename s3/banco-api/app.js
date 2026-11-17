@@ -1,8 +1,8 @@
 import express from 'express';
-import clientesRouter from './routes/clientes.js';
-import contasRouter from './routes/contas.js';
-import { logger } from './middleware/logger.js';
-import { errorHandler } from './middleware/errorHandler.js';
+import clientesRouter from './src/routes/clientes.js';
+import contasRouter from './src/routes/contas.js';
+import { logger } from './src/middleware/logger.js';
+import { errorHandler } from './src/middleware/errorHandler.js';
 
 const app = express();
 
