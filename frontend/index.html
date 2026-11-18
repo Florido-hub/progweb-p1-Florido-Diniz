@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projeto 1 · Usuários</title>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+    crossorigin="anonymous">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-body-tertiary">
+  <header class="bg-primary text-white py-3 mb-4">
+    <div class="container">
+      <h1 class="h3 mb-0">Projeto 1 · Painel</h1>
+      <p class="mb-0 small">Gerenciamento de usuários</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="aviso" class="alert d-none" role="status" aria-live="polite"></div>
+
+    <!-- ===================== USUÁRIOS ===================== -->
+    <section class="row g-4 mb-5" aria-labelledby="titulo-usuarios">
+
+      <!-- Formulário -->
+      <div class="col-lg-4">
+        <div class="card shadow-sm">
+          <div class="card-header">
+            <h2 id="titulo-usuarios" class="h5 mb-0">Usuários</h2>
+          </div>
+
+          <form id="form-usuario" class="card-body" novalidate>
+            <div class="mb-3">
+              <label for="usu-nome" class="form-label">Nome</label>
+              <input
+                id="usu-nome"
+                name="nome"
+                type="text"
+                class="form-control"
+                required>
+            </div>
+
+            <div class="mb-3">
+              <label for="usu-email" class="form-label">E-mail</label>
+              <input
+                id="usu-email"
+                name="email"
+                type="email"
+                class="form-control"
+                required>
+            </div>
+
+            <div class="d-flex gap-2">
+              <button id="usu-salvar" type="submit" class="btn btn-primary">
+                Cadastrar usuário
+              </button>
+
+              <button id="usu-cancelar" type="button"
+                class="btn btn-outline-secondary d-none">
+                Cancelar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Lista -->
+      <div class="col-lg-8">
+        <div class="card shadow-sm">
+          <div class="card-body">
+
+            <!-- Carregando -->
+            <div id="usuarios-carregando" class="text-center py-4">
+              <div class="spinner-border text-primary" aria-hidden="true"></div>
+              <p class="text-muted mt-2 mb-0">Carregando usuários…</p>
+            </div>
+
+            <!-- Erro -->
+            <div id="usuarios-erro"
+              class="alert alert-danger mb-0 d-none" role="alert">
+
+              <p id="usuarios-erro-msg" class="mb-2"></p>
+
+              <button id="usuarios-recarregar" type="button"
+                class="btn btn-sm btn-outline-danger">
+                Tentar de novo
+              </button>
+            </div>
+
+            <!-- Vazio -->
+            <p id="usuarios-vazio"
+              class="text-muted text-center py-4 mb-0 d-none">
+              Nenhum usuário cadastrado. Cadastre o primeiro no formulário.
+            </p>
+
+            <!-- Sucesso -->
+            <div id="usuarios-sucesso" class="table-responsive d-none">
+              <table class="table table-hover align-middle mb-0">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col" class="text-end">Ações</th>
+                  </tr>
+                </thead>
+
+                <tbody id="usuarios-linhas"></tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="container text-muted small pb-4">
+    Programação Web · UEPB · 2026.2 · Semana 4
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

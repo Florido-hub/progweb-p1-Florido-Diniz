@@ -10,7 +10,7 @@ export const projetoService = {
 
   buscarPorId(id) {
     const conta = projetoModel.buscarPorId(id);
-    if (!conta) throw erro(404, 'Conta não encontrada');
+    if (!conta) throw erro(404, 'Projeto não encontrado');
     return conta;
   },
 
