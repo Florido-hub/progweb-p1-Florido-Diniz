@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Projeto 1 · Usuários</title>
+  <title>TaskFlow - API</title>
 
   <link rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
@@ -120,6 +120,105 @@
       </div>
 
     </section>
+
+    <section class="row g-4 mb-5">
+  <div class="col-lg-4">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="h5">Projetos</h2>
+
+        <form id="form-projeto">
+          <div class="mb-3">
+            <label for="proj-nome" class="form-label">Nome</label>
+            <input
+              type="text"
+              class="form-control"
+              id="proj-nome"
+              name="nome"
+              required
+            >
+          </div>
+
+          <div class="mb-3">
+            <label for="proj-descricao" class="form-label">Descrição</label>
+            <textarea
+              class="form-control"
+              id="proj-descricao"
+              name="descricao"
+              rows="3"
+            ></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label for="proj-usuario" class="form-label">Responsável</label>
+            <select
+              class="form-select"
+              id="proj-usuario"
+              name="usuarioId"
+              required
+            >
+              <option value="">Selecione um usuário...</option>
+            </select>
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-primary"
+            id="proj-salvar"
+          >
+            Cadastrar projeto
+          </button>
+
+          <button
+            type="button"
+            class="btn btn-secondary d-none"
+            id="proj-cancelar"
+          >
+            Cancelar edição
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-8">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="h5">Projetos cadastrados</h2>
+
+        <p id="projetos-carregando" class="d-none">
+          Carregando projetos...
+        </p>
+
+        <div id="projetos-erro" class="d-none">
+          <p id="projetos-erro-msg"></p>
+          <button id="projetos-recarregar" class="btn btn-sm btn-primary">
+            Tentar novamente
+          </button>
+        </div>
+
+        <p id="projetos-vazio" class="d-none">
+          Nenhum projeto cadastrado.
+        </p>
+
+        <div id="projetos-sucesso" class="d-none table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Projeto</th>
+                <th>Descrição</th>
+                <th>Responsável</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="projetos-linhas"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
   </main>
 
   <footer class="container text-muted small pb-4">
